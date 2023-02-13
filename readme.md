@@ -4,7 +4,7 @@
 
 * Contract implements access control using the "Ownable" library from OpenZeppelin, which ensures that only the owner of the contract can perform certain actions such as setting the message and the PIN.
 
-* Message is encrypted using the Sha256 library from OpenZeppelin, making it difficult for anyone but the intended recipient to read.
+* Message is encrypted using the Keccak256 standard ethereum library, making it difficult for anyone but the intended recipient to read.
 
 * Contract owner sets the PIN, which is required to open the love letter.
 
