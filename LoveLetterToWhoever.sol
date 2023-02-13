@@ -1,24 +1,35 @@
 pragma solidity ^0.8.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/cryptography/Sha256.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
+import "https://github.com/ethereum/solidity/blob/master/stdlib/keccak256.sol";
 
-contract LoveLetterToWhoever is Ownable {
+contract LoveLetterToWhoever {
+    using keccak256 for bytes32;
 
-string private encryptedMessage;
-uint private pin;
+    address public owner;
+    uint256 public pin;
+    bytes32 public hash;
+    string public message;
 
-function setMessage(string memory message) public onlyOwner {
-encryptedMessage = Sha256(abi.encodePacked(message)).toHex();
-}
+    constructor() public {
+        owner = msg.sender;
+    }
 
-function setPin(uint _pin) public onlyOwner {
-pin = _pin;
-}
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only the owner can perform this action.");
+        _;
+    }
 
-function openLoveLetter(uint _pin) public view returns (string memory) {
-require(_pin == pin, "Incorrect pin");
-return abi.decode(encryptedMessage, (string));
-}
+    function setPin(uint256 _pin) public onlyOwner {
+        pin = _pin;
+    }
 
+    function setMessage(string memory _message) public onlyOwner {
+        message = _message;
+        hash = keccak256(abi.encodePacked(message));
+    }
+
+    function revealMessage(uint256 _pin) public view returns (string memory) {
+        require(_pin == pin, "Incorrect PIN.");
+        return message;
+    }
 }
