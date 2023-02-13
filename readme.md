@@ -15,3 +15,9 @@
 * To open the love letter, the recipient must provide the correct PIN, which is checked by the smart contract. If the correct PIN is entered, the smart contract returns the decrypted message.
 
 * included html interface featuring a red text with black background theme.
+
+* HTML file should interact properly with the solidity file as long as the correct contract address and ABI are provided in the HTML file. 
+
+* The code in the HTML file uses the web3.js library to interact with the Ethereum network and the deployed contract. 
+
+* The functions in the HTML file call the methods in the contract using the loveLetter instance created with the ABI and contract address, then display the returned values on the HTML page using JavaScript.
