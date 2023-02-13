@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Love Letter Interface</title>
+    <style>
+      body {
+        background-color: black;
+        color: red;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Love Letter To Whoever</h1>
+    <p>Set Love Letter Message:</p>
+    <input id="message" type="text" placeholder="Write your message here">
+    <br><br>
+    <p>Set Pin:</p>
+    <input id="pin" type="text" placeholder="Set 4-digit pin">
+    <br><br>
+    <button id="setMessageBtn">Set Message</button>
+    <button id="setPinBtn">Set Pin</button>
+    <br><br>
+    <p>Open Love Letter:</p>
+    <input id="inputPin" type="text" placeholder="Enter 4-digit pin">
+    <br><br>
+    <button id="openLoveLetterBtn">Open Love Letter</button>
+    <br><br>
+    <p id="output"></p>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.0.0-beta.37/dist/web3.min.js"></script>
+<script>
+  if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+  } else {
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  }
+
+  const contractAddress = '0x...'; // Add the deployed contract address
+  const abi = [{...}]; // Add the ABI of the contract
+
+  const loveLetter = new web3.eth.Contract(abi, contractAddress);
+
+  const setMessage = async () => {
+    const message = document.getElementById('message').value;
+    await loveLetter.methods.setMessage(message).send({ from: web3.eth.defaultAccount });
+    document.getElementById('output').innerHTML = 'Message set successfully!';
+  }
+
+  const setPin = async () => {
+    const pin = document.getElementById('pin').value;
+    await loveLetter.methods.setPin(pin).send({ from: web3.eth.defaultAccount });
+    document.getElementById('output').innerHTML = 'Pin set successfully!';
+  }
+
+  const openLoveLetter = async () => {
+    const pin = document.getElementById('inputPin').value;
+    const message = await loveLetter.methods.openLoveLetter(pin).call();
+    document.getElementById('output').innerHTML = message;
+  }
+
+  document.getElementById('setMessageBtn').addEventListener('click', setMessage);
+  document.getElementById('setPinBtn').addEventListener('click', setPin);
+  document.getElementById('openLoveLetterBtn').addEventListener('click', openLoveLetter);
+</script>
+</html
