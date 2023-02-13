@@ -13,3 +13,5 @@
 * Alternatively, the contract owner could use a "message in a bottle" approach wherein anyone who finds the PIN receives the love letter as a reward, and the PIN remains secret.
 
 * To open the love letter, the recipient must provide the correct PIN, which is checked by the smart contract. If the correct PIN is entered, the smart contract returns the decrypted message.
+
+* included html interface featuring a red text with black background theme.
