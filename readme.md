@@ -21,3 +21,15 @@
 * The code in the HTML file uses the web3.js library to interact with the Ethereum network and the deployed contract. 
 
 * The functions in the HTML file call the methods in the contract using the loveLetter instance created with the ABI and contract address, then display the returned values on the HTML page using JavaScript.
+
+INSTRUCTIONS
+
+To deploy the HTML file, you can use a static website hosting service such as GitHub Pages or Amazon S3. 
+You would simply upload the HTML file to the hosting platform, and then access it using the URL provided by the hosting service.
+
+For example, if you use GitHub Pages, you can follow these steps:
+* Create a GitHub account and create a new repository.
+* Commit the HTML file to the repository.
+* Go to the repository settings and enable GitHub Pages under the "GitHub Pages" section.
+* Your HTML file will now be accessible at a URL such as https://your-username.github.io/your-repository-name.
+* Note that you will also need to deploy the solidity contract to a Ethereum network such as Rinkeby or Mainnet. You can do this using a tool such as Remix, which is a browser-based Solidity IDE that can interact with Ethereum networks.
