@@ -1,3 +1,5 @@
+* features no imports or dependencies other than the EVM itself.
+
 * The purpose of this smart contract is to allow the owner to create and send a love letter to someone which is cryptographically private.
 
 * Smart contract is called "LoveLetterToWhoever" and is built using the Solidity programming language and OpenZeppelin libraries.
