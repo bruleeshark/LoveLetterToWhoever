@@ -1,14 +1,12 @@
+// SPDX-License-Identifier: GPL-3.0
+
 pragma solidity ^0.8.0;
 
-import "https://github.com/ethereum/solidity/blob/master/stdlib/keccak256.sol";
-
 contract LoveLetterToWhoever {
-    using keccak256 for bytes32;
-
-    address public owner;
-    uint256 public pin;
     bytes32 public hash;
     string public message;
+    address public owner;
+    uint256 public pin;
 
     constructor() public {
         owner = msg.sender;
