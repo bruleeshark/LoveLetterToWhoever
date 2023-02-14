@@ -26,6 +26,10 @@
 
 INSTRUCTIONS
 
+Deploy the contract by pasting it into Remix IDE or your favourite compiler and deployer running 8.0 or higher.
+
+insert contract ABI and address into your html file at locations specified by comments
+
 To deploy the HTML file, you can use a static website hosting service such as GitHub Pages or Amazon S3. 
 You would simply upload the HTML file to the hosting platform, and then access it using the URL provided by the hosting service.
 
